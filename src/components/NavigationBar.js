@@ -1,10 +1,6 @@
-// Importing necessary components and styles from react-bootstrap
-import { Nav } from "react-bootstrap";
-import { useState } from "react";
-import Navbar from "react-bootstrap/Navbar";
+import { Nav, Navbar } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import Cart from "./Cart";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const NavigationBar = (props) => {

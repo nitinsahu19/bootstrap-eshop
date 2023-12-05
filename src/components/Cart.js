@@ -1,37 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { CartContext } from "./cart-context";
 
-const Cart = () => {
-  const [showCart, setShowCart] = useState(false);
-
-  const cartItems = [
-    {
-      title: "Colors",
-      price: 100,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-      quantity: 2,
-    },
-  ];
-
-  const handleClose = () => setShowCart(false);
-  const handleShow = () => setShowCart(true);
-
+const Cart = (props) => {
+  const cartCtx = useContext(CartContext);
   return (
     <>
-      <Button variant="light" onClick={handleShow}>
-        Open Cart
-      </Button>
-
-      <Modal show={showCart} onHide={handleClose} dialogClassName="cart-modal">
+      <Modal show={true} onHide={props.onClose} dialogClassName="cart-modal">
         <Modal.Header closeButton>
           <Modal.Title>Your Cart</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
           <ListGroup>
-            {cartItems.map((item, index) => (
+            {cartCtx.cartItems.map((item, index) => (
               <ListGroup.Item key={index}>
                 <img
                   src={item.imageUrl}
@@ -39,18 +23,24 @@ const Cart = () => {
                   className="img-fluid"
                 />
                 {item.title}: Price: ${item.price}, Quantity: {item.quantity}
+                <Button
+                  onClick={() => {
+                    cartCtx.removeFromCart(item.title);
+                  }}
+                  variant="danger"
+                >
+                  Remove item
+                </Button>
               </ListGroup.Item>
             ))}
           </ListGroup>
         </Modal.Body>
-        {/* <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
+
+        <Modal.Footer>
+          <Button variant="primary" className="mx-auto">
+            PURCHASE
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Proceed to Checkout
-          </Button>
-        </Modal.Footer> */}
+        </Modal.Footer>
       </Modal>
     </>
   );

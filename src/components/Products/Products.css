@@ -1,0 +1,12 @@
+/* .hover-zoom {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-zoom:hover img {
+  transform: scale(1.3);
+  filter: brightness(130%);
+  transition: ease-in 0.5s;
+}
+
+ */

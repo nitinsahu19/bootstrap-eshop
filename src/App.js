@@ -1,25 +1,27 @@
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import NavigationBar from "./components/Navbar";
-import Products from "./components/Products";
+import NavigationBar from "./components/NavigationBar";
+import Products from "./components/Products/Products";
 import Cart from "./components/Cart";
 import { useState } from "react";
+import { CartProvider } from "./components/cart-context";
+
 const App = () => {
   const [showCart, setShowCart] = useState(false);
 
-  const onCartHandler = () => {
-    setShowCart(!showCart);
-  };
+  const showCartHandler = () => setShowCart(true);
+
+  const hideCartHandler = () => setShowCart(false);
 
   return (
-    <>
-      <NavigationBar onShowCart={onCartHandler} />
-      {showCart && <Cart />}
+    <CartProvider>
+      {showCart && <Cart onClose={hideCartHandler} />}
+      <NavigationBar onShowCart={showCartHandler} />
       <Header />
       <Products />
       <Footer />
-    </>
+    </CartProvider>
   );
 };
 
