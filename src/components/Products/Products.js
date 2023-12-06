@@ -29,7 +29,7 @@ const Product = (props) => {
     },
 
     {
-      title: "Trending",
+      title: "Trending Album",
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
@@ -70,11 +70,7 @@ const Product = (props) => {
         ))}
       </Row>
       <div className="mt -10 d-flex justify-content-center">
-        <Button
-          onClick={props.onShowCart}
-          variant="secondary"
-          style={{ backgroundColor: "gray", color: "skyblue" }}
-        >
+        <Button onClick={props.onShowCart} className="bg-purple text-white">
           See The Cart
         </Button>
       </div>

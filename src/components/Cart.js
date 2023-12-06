@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -19,6 +19,21 @@ const Cart = (props) => {
       alert("Cart is EMPTY!!! Kindly add items to cart.");
     } else alert("Thanks for Shopping with us, Good Day ahead :)");
   };
+
+  // empty cart message
+  let cartEmptyMess;
+  if (cartCtx.cartItems.length === 0) {
+    cartEmptyMess = <p>No items in the Cart !!!</p>;
+  }
+
+  //  Total amount
+  const totalTag =
+    cartCtx.cartItems.length !== 0 ? (
+      <div className="mt-3">
+        <strong>Total Amount:</strong> ${totalAmount.toFixed(2)}
+      </div>
+    ) : null;
+
   return (
     <>
       <Modal show={true} onHide={props.onClose} dialogClassName="cart-modal">
@@ -28,14 +43,24 @@ const Cart = (props) => {
 
         <Modal.Body>
           <ListGroup>
+            {cartEmptyMess}
             {cartCtx.cartItems.map((item, index) => (
-              <ListGroup.Item key={index}>
+              <ListGroup.Item
+                key={index}
+                className="d-flex justify-content-between align-items-center"
+              >
                 <img
                   src={item.imageUrl}
                   alt={item.title}
-                  className="img-fluid img-thumbnail"
+                  className="img-fluid img-thumbnail mr-3"
+                  style={{ width: "80px", height: "80px" }}
                 />
-                {item.title}: Price: ${item.price}, Quantity: {item.quantity}
+                <div>
+                  <span className="font-weight-bold">{item.title}</span>
+                  <span>
+                    Price: ${item.price}, Quantity: {item.quantity}
+                  </span>
+                </div>
                 <Button
                   onClick={() => {
                     cartCtx.removeFromCart(item.title);
@@ -48,9 +73,7 @@ const Cart = (props) => {
             ))}
           </ListGroup>
           {/* Display total amount below cart items */}
-          <div className="mt-3">
-            <strong>Total Amount:</strong> ${totalAmount.toFixed(2)}
-          </div>
+          {totalTag}
         </Modal.Body>
 
         <Modal.Footer>
