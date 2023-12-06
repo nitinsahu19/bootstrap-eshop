@@ -19,7 +19,7 @@ const App = () => {
       {showCart && <Cart onClose={hideCartHandler} />}
       <NavigationBar onShowCart={showCartHandler} />
       <Header />
-      <Products />
+      <Products onShowCart={showCartHandler} />
       <Footer />
     </CartProvider>
   );

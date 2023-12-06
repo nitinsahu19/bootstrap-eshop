@@ -3,33 +3,33 @@ import "./Products.css";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { CartContext } from "../cart-context";
 
-const Product = () => {
+const Product = (props) => {
   const cartCtx = useContext(CartContext);
 
   const productsArr = [
     {
-      title: "Colors",
+      title: "English Chartbusters",
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
     },
 
     {
-      title: "Black and white Colors",
+      title: "Punjabi Beats",
       price: 50,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
     },
 
     {
-      title: "Yellow and Black Colors",
+      title: "Devotional Album",
       price: 70,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
     },
 
     {
-      title: "Blue Color",
+      title: "Trending",
       price: 100,
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
@@ -71,6 +71,7 @@ const Product = () => {
       </Row>
       <div className="mt -10 d-flex justify-content-center">
         <Button
+          onClick={props.onShowCart}
           variant="secondary"
           style={{ backgroundColor: "gray", color: "skyblue" }}
         >

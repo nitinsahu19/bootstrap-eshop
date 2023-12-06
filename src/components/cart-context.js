@@ -4,7 +4,6 @@ const CartContext = createContext();
 
 const CartProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
-  //   const [totalAmount, updateTotalAmount] = useState(0);
 
   const addToCartHandler = (item) => {
     // Assuming each item in the cart has a unique title for identification
@@ -14,8 +13,7 @@ const CartProvider = (props) => {
     );
 
     if (itemInCart) {
-      // If the item is already in the cart, you may want to update its quantity or take other actions
-      // For simplicity, let's update the quantity for now
+      // If the item is already in the cart, you may want to update its quantity
       const updatedCartItems = cartItems.map((cartItem) =>
         cartItem.title === item.title
           ? { ...cartItem, quantity: cartItem.quantity + 1 }
@@ -30,22 +28,22 @@ const CartProvider = (props) => {
         { ...item, quantity: 1 },
       ]);
     }
-
-    // Update the total amount
-    // updateTotalAmount(totalAmount + item.price * item.quantity);
   };
 
   const removeFromCartHandler = (itemTitle) => {
-    // Filter out the item to be removed
-    const updatedCartItems = cartItems.filter(
-      (item) => item.title !== itemTitle
-    );
+    const updatedCartItems = cartItems
+      .map((cartItem) => {
+        return cartItem.title === itemTitle
+          ? { ...cartItem, quantity: cartItem.quantity - 1 }
+          : cartItem;
+      })
+      .filter((cartItem) => cartItem.quantity > 0);
+
     setCartItems(updatedCartItems);
   };
 
   const cartContext = {
     cartItems,
-    // totalAmount,
     addToCart: addToCartHandler,
     removeFromCart: removeFromCartHandler,
   };
