@@ -56,10 +56,14 @@ const Cart = (props) => {
                   style={{ width: "80px", height: "80px" }}
                 />
                 <div>
-                  <span className="font-weight-bold">{item.title}</span>
-                  <span>
-                    Price: ${item.price}, Quantity: {item.quantity}
+                  <span
+                    style={{ fontFamily: "serif", fontSize: "18px" }}
+                    className="font-weight-bold"
+                  >
+                    {item.title},{" "}
                   </span>
+                  <strong>Price:</strong> ${item.price},{" "}
+                  <strong>Quantity:</strong> {item.quantity}
                 </div>
                 <Button
                   onClick={() => {

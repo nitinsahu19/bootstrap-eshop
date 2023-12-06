@@ -1,5 +1,5 @@
-import { Container } from "react-bootstrap";
 import classes from "./Home.module.css";
+import HomeHeader from "./HomeHeader";
 
 const Home = () => {
   const tourSchedule = [
@@ -16,25 +16,24 @@ const Home = () => {
   ];
 
   return (
-    <div className={classes.homeContainer}>
-      {/* <Container fluid className="text-center bg-secondary p-4 text-white">
-        <button class="latest-album">Get our Latest Album</button>
-        <button class="play-btn">►</button>
-      </Container> */}
-      <h2>TOURS</h2>
-      <table>
-        {tourSchedule.map((tour) => (
-          <tr className={classes.row}>
-            <td>{tour.date}</td>
-            <td>{tour.name}</td>
-            <td>{tour.platform}</td>
-            <td>
-              <button className={classes.btn}>BUY TICKETS</button>
-            </td>
-          </tr>
-        ))}
-      </table>
-    </div>
+    <>
+      <HomeHeader />
+      <div className={classes.homeContainer}>
+        <h2>TOURS</h2>
+        <table>
+          {tourSchedule.map((tour) => (
+            <tr className={classes.row}>
+              <td>{tour.date}</td>
+              <td>{tour.name}</td>
+              <td>{tour.platform}</td>
+              <td>
+                <button className={classes.btn}>BUY TICKETS</button>
+              </td>
+            </tr>
+          ))}
+        </table>
+      </div>
+    </>
   );
 };
 
