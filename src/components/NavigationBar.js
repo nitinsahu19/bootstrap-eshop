@@ -20,9 +20,9 @@ const NavigationBar = (props) => {
         <Container>
           {/* Navigation links centered using "mx-auto"  */}
           <Nav className="mx-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#Store">Store</Nav.Link>
-            <Nav.Link href="#About">About</Nav.Link>
+            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/">Store</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
           </Nav>
 
           <Nav>

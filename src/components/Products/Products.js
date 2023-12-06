@@ -11,28 +11,48 @@ const Product = (props) => {
       title: "English Chartbusters",
       price: 100,
       imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+        "https://source.unsplash.com/300x300/?english",
     },
 
     {
       title: "Punjabi Beats",
       price: 50,
       imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+        "https://source.unsplash.com/300x300/?punjabi",
     },
 
     {
       title: "Devotional Album",
       price: 70,
       imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+        "https://source.unsplash.com/300x300/?devotional",
     },
 
     {
       title: "Trending Album",
       price: 100,
       imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+        "https://source.unsplash.com/300x300/?trending",
+    },
+    {
+      title: "Rock Anthems",
+      price: 90,
+      imageUrl: "https://source.unsplash.com/300x300/?india", // Replace with a suitable image URL
+    },
+    {
+      title: "Bollywood Melodies",
+      price: 80,
+      imageUrl: "https://source.unsplash.com/300x300/?bollywood", // Replace with a suitable image URL
+    },
+    {
+      title: "Jazz Classics",
+      price: 120,
+      imageUrl: "https://source.unsplash.com/300x300/?jazz", // Replace with a suitable image URL
+    },
+    {
+      title: "Instrumental Bliss",
+      price: 60,
+      imageUrl: "https://source.unsplash.com/300x300/?instrumental", // Replace with a suitable image URL
     },
   ];
 
