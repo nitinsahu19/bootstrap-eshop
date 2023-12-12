@@ -23,6 +23,7 @@ const NavigationBar = (props) => {
             <Nav.Link href="/home">Home</Nav.Link>
             <Nav.Link href="/">Store</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/contact">Contact</Nav.Link>
           </Nav>
 
           <Nav>

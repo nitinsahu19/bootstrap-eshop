@@ -1,6 +1,5 @@
 import "./App.css";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
 import NavigationBar from "./components/NavigationBar";
 import Cart from "./components/Cart";
 import { useState } from "react";
@@ -9,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AboutPage from "./components/Pages/About";
 import Product from "./components/Products/Products";
 import Home from "./components/Pages/Home";
+import ContactUs from "./components/Pages/ContactUs";
 
 const App = () => {
   const [showCart, setShowCart] = useState(false);
@@ -21,6 +21,7 @@ const App = () => {
     { path: "/", element: <Product onShowCart={showCartHandler} /> },
     { path: "/about", element: <AboutPage /> },
     { path: "/home", element: <Home /> },
+    { path: "/contact", element: <ContactUs /> },
   ]);
 
   return (
