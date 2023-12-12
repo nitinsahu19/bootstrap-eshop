@@ -8,7 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AboutPage from "./components/Pages/About";
 import Product from "./components/Products/Products";
 import Home from "./components/Pages/Home";
-import ContactUs from "./components/Pages/ContactUs";
+import Contact from "./components/Pages/Contact";
 
 const App = () => {
   const [showCart, setShowCart] = useState(false);
@@ -21,7 +21,7 @@ const App = () => {
     { path: "/", element: <Product onShowCart={showCartHandler} /> },
     { path: "/about", element: <AboutPage /> },
     { path: "/home", element: <Home /> },
-    { path: "/contact", element: <ContactUs /> },
+    { path: "/contact", element: <Contact /> },
   ]);
 
   return (

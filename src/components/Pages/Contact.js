@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../Header";
 
-const ContactUs = () => {
+const Contact = () => {
   //states to get tract the value of form
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -104,4 +104,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default Contact;
