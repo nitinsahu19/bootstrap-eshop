@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Header from "../Header";
 
 const Contact = () => {
-  //states to get tract the value of form
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [contact, setContact] = useState("");
@@ -30,7 +29,7 @@ const Contact = () => {
       setContact("");
 
       const response = await fetch(
-        "https://bootstrap-eshop-default-rtdb.firebasei.com/contactInfo.json",
+        "https://react-eshop-2b0be-default-rtdb.firebaseio.com/contactInfo.json",
         {
           method: "POST",
           body: JSON.stringify(feedback),

@@ -1,52 +1,75 @@
+import React from "react";
 import Header from "../Header";
 
 const AboutPage = () => {
   return (
     <>
       <Header />
-      <div>
-        <h1>About</h1>
-        <p>
-          Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of
-          sorrows, hates no prosecutors will unfold in the enduring of which
-          were born in it? Often leads smallest mistake some pain main
-          responsibilities are to stand for the right builder of pleasure,
-          accepted explain up to now. The things we are accusing of these in the
-          explication of the truth receives from the flattery of her will never
-          be the trouble and they are refused to the pleasures and the pleasures
-          of the pain, explain the treatment of excepturi of the blessed
-          sufferings. I never said will unfold in him receives at another time
-          he may please the one that those works, we are less than they, this
-          refused to the pleasures of deleniti? Those are! Will unfold in times
-          of pleasure, this pain will be a right enjoyed by corrupt, are
-          accusing him of all pleasures, and seek his own, or, to the needs of
-          the agony of the choice. We hate the fellow.
-        </p>
-        <div style={{ display: "flex" }}>
+      <div className="container mt-4">
+        <section>
+          <h1 className="display-4 mb-4">About Us</h1>
+          <p className="lead">
+            Welcome to The Generics, your premier destination for high-quality
+            generic products! Our diverse range of items caters to your everyday
+            needs, from healthcare essentials to trendy accessories. We've
+            designed our store to simplify your shopping experience while
+            providing unbeatable value. At The Generics, we prioritize
+            affordability and quality. Explore our virtual aisles and discover
+            the convenience of shopping for reliable products that enhance your
+            lifestyle.
+          </p>
+        </section>
+
+        <section className="d-flex ">
           <img
             src="https://www.adobe.com/acrobat/hub/media_173d13651460eb7e12c0ef4cf8410e0960a20f0ee.jpeg?width=750&format=jpeg&optimize=medium"
-            alt=""
+            alt="The Generics Store"
+            className="img-fluid rounded-circle border border-dark p-2 m-4"
             style={{
-              width: "1500px",
-              height: "400px",
-              border: "1px solid black",
-              borderRadius: "50%",
-              marginLeft: "20px",
-              marginRight: "50px",
+              width: "300px",
+              height: "300px",
             }}
           />
 
-          <p style={{ margin: "100px" }}>
-            Lorem ipsum dolor, sit amet consectetur rebates. The distinction,
-            that arise from or to. The greater, therefore, an obstacle to the
-            duties of the debts receives the very great importance to us that
-            these are consequent to that question is answered, which was
-            selected for the fault, it is often one of us, however, have any!
-            Moreover, this is often not at once take the hardships of the life
-            of harsh condemn, we are accusing him? Him whom something large
-            cisterns.
-          </p>
-        </div>
+          <div className="flex-grow-1">
+            <h2 className="h4 mb-3">Why Choose The Generics?</h2>
+            <ul className="list-unstyled">
+              <li>
+                <strong>Quality Assurance:</strong> Our generics undergo
+                stringent quality checks to meet industry standards, providing
+                you with peace of mind and trust in every purchase.
+              </li>
+              <li>
+                <strong>Affordability:</strong> Enjoy cost-effective solutions
+                without compromising on quality. Everyone deserves access to
+                reliable products without the premium price tag.
+              </li>
+              <li>
+                <strong>Diverse Selection:</strong> Explore a wide array of
+                generic products across various categories, including health and
+                wellness, household essentials, and stylish accessories.
+              </li>
+              <li>
+                <strong>User-Friendly Platform:</strong> Our website is designed
+                with you in mind. Navigate effortlessly, find what you need
+                quickly, and enjoy a seamless shopping experience from the
+                comfort of your home.
+              </li>
+              <li>
+                <strong>Secure Checkout:</strong> Your privacy and security are
+                our top priorities. Rest assured, our secure checkout process
+                ensures that your personal information is handled with the
+                utmost confidentiality.
+              </li>
+            </ul>
+            <p>
+              Shop with confidence at The Generics, where quality,
+              affordability, and convenience converge to redefine your online
+              shopping experience. Start browsing now and discover the world of
+              possibilities with our curated selection of generics!
+            </p>
+          </div>
+        </section>
       </div>
     </>
   );
