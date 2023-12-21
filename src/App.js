@@ -1,22 +1,28 @@
-import Footer from "./components/Footer";
-import NavigationBar from "./components/NavigationBar";
-import Cart from "./components/Cart";
-import { useState } from "react";
-import { CartProvider } from "./components/cart-context";
+import { Suspense, lazy, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AboutPage from "./components/pages/About";
-import Product from "./components/products/Products";
-import Home from "./components/pages/Home";
-import Contact from "./components/pages/Contact";
-import Login from "./components/pages/Login";
 
 const App = () => {
+  // Lazy loading components for better performance
+  const AboutPage = lazy(() => import("./components/pages/About"));
+  const Product = lazy(() => import("./components/products/Products"));
+  const Home = lazy(() => import("./components/pages/Home"));
+  const Contact = lazy(() => import("./components/pages/Contact"));
+  const Login = lazy(() => import("./components/pages/Login"));
+  const Footer = lazy(() => import("./components/Footer"));
+  const NavigationBar = lazy(() => import("./components/NavigationBar"));
+  const Cart = lazy(() => import("./components/Cart"));
+  const CartProvider = lazy(() => import("./components/cart-context"));
+
+  // State to control whether to show the Cart component
   const [showCart, setShowCart] = useState(false);
 
+  // Event handler to show the Cart component
   const showCartHandler = () => setShowCart(true);
 
+  // Event handler to hide the Cart component
   const hideCartHandler = () => setShowCart(false);
 
+  // Creating a router configuration for different paths
   const router = createBrowserRouter([
     { path: "/", element: <Product onShowCart={showCartHandler} /> },
     { path: "/about", element: <AboutPage /> },
@@ -26,12 +32,23 @@ const App = () => {
   ]);
 
   return (
-    <CartProvider>
-      {showCart && <Cart onClose={hideCartHandler} />}
-      <NavigationBar onShowCart={showCartHandler} />
-      <RouterProvider router={router} />
-      <Footer />
-    </CartProvider>
+    // Wrapping the components in Suspense for lazy loading
+    <Suspense fallback={<p className="text-center">Loading...</p>}>
+      {/* Using CartProvider to manage cart-related context */}
+      <CartProvider>
+        {/* Conditionally rendering the Cart component */}
+        {showCart && <Cart onClose={hideCartHandler} />}
+
+        {/* Navigation bar for navigating between different pages */}
+        <NavigationBar onShowCart={showCartHandler} />
+
+        {/* RouterProvider to provide routing context */}
+        <RouterProvider router={router} />
+
+        {/* Footer component */}
+        <Footer />
+      </CartProvider>
+    </Suspense>
   );
 };
 
